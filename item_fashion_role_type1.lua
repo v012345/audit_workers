@@ -22,7 +22,9 @@ function item_fashion_role_type1:check()
             end
         end
         if row.occupation ~= tostring(self.role_type) then
-            print(self.name .. " ( id : " .. row.id .. " ) occupation should be " .. self.role_type)
+            print(self.name ..
+                " ( id : " .. row.id .. " ) occupation should be " .. self.role_type .. " , but " ..
+                row.occupation .. " given")
         end
         if row.suit_id ~= "-1" and not item_suit:isHasId(row.suit_id) then
             print(self.name .. " ( id : " .. row.id .. " ) item_suit has " .. row.suit_id .. " but miss in item_suit")
