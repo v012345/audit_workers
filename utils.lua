@@ -41,3 +41,7 @@ function GetItemById(id, role_type)
     -- print(item_table == item_equip_role_type1)
     return item_table:getRowDataById(id), table_name
 end
+
+-- function PrintMissForeignKey(master_table_name,)
+    
+-- end
