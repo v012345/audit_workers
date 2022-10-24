@@ -25,10 +25,11 @@ other_answer:check()
 item_gift:check()
 other_shop_shelf:check()
 other_shop_goods:check()
+text_fighttips:check()
 
 print("--------- exit lua scripts ---------")
 do
-    return
+    -- return
 end
 -- 以下是基本表 , 只是给其他服提供服务 , 列出来只是看看还有多少表没有完成
 res_image:check()
@@ -36,6 +37,8 @@ res_sound:check()
 res_spine:check()
 res_fashion:check()
 res_video:check()
+text_answer:check()
+text_announcement:check()
 
 recharge_return:check() -- 感觉是废表
 recharge_rebate:check() --- 感觉是废表
@@ -364,11 +367,11 @@ sound_spine:check()
 sound_spine_bgm:check()
 sound_ui:check()
 specialability_base:check()
-text_announcement:check()
-text_answer:check()
+
+
 text_content:check()
 text_error:check()
-text_fighttips:check()
+
 text_help:check()
 text_mail:check()
 text_name:check()
