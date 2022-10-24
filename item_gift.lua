@@ -64,9 +64,24 @@ function item_gift:check()
                         row.id, key))
                 end
             end
-            -- for _, item_id in pairs(item_ids) do
-            -- 看物品是否存在
-            -- end
+
+            local function checkItemExits(item_id)
+                local item_info, item_table_name = GetItemById(item_id)
+                if not item_table_name then
+                    print(string.format("%s ( id : %s ) item_ids has %s is a wrong item id", self.name, row.id, item_id))
+                elseif not item_info then
+                    print(string.format("%s ( id : %s ) item_ids has %s , but miss in %s", self.name, row.id, item_id,
+                        item_table_name))
+                end
+            end
+
+            for item_id, _ in pairs(item_id_map) do
+                checkItemExits(item_id)
+            end
+            for item_id, _ in pairs(preview_item_id_map) do
+                checkItemExits(item_id)
+            end
+
         else
             for _, item_id in pairs(item_ids) do
                 local item_info, item_table_name = GetItemById(item_id)
@@ -78,6 +93,37 @@ function item_gift:check()
                 end
             end
         end
+        if row.preview_item_id ~= "0" then
+
+            if not
+                (
+                #rand_types == #item_ids and #item_ids == #item_num_maxs and #item_num_maxs == #item_num_mins and
+                    #item_num_mins == #item_rates and #item_rates == #drop_bindings and
+                    #drop_bindings == #preview_item_ids
+                    and #preview_item_ids == #preview_item_nums
+                ) then
+                print(string.format("%s ( id : %s ) 对应关系有问题\n rand_type:%s item_id:%s item_num_max:%s item_num_min:%s item_rate:%s drop_binding:%s "
+                    ,
+                    self.name, row.id, #rand_types, #item_ids, #item_num_maxs, #item_num_mins, #item_rates,
+                    #drop_bindings))
+            end
+        else
+            if not (
+                (
+                    #rand_types == #item_ids and #item_ids == #item_num_maxs and #item_num_maxs == #item_num_mins and
+                        #item_num_mins == #item_rates and #item_rates == #drop_bindings
+                    ) and (
+                    #preview_item_ids == #preview_item_nums
+                    )
+                )
+            then
+                print(string.format("%s ( id : %s ) 对应关系有问题\n rand_type:%s item_id:%s item_num_max:%s item_num_min:%s item_rate:%s drop_binding:%s "
+                    ,
+                    self.name, row.id, #rand_types, #item_ids, #item_num_maxs, #item_num_mins, #item_rates,
+                    #drop_bindings))
+            end
+        end
+
     end
 end
 
