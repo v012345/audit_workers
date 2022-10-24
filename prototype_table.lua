@@ -5,6 +5,10 @@ function prototype_table:getName()
     return self.name
 end
 
+function prototype_table:check()
+    print(string.format("%s need to implement check interface", self.name))
+end
+
 function prototype_table:getDataRowCount()
     return GetTableDataRowNumber(self.name)
 end
