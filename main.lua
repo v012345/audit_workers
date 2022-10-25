@@ -40,6 +40,8 @@ res_fashion:check()
 res_video:check()
 text_answer:check()
 text_announcement:check()
+text_error:check()
+text_content:check()
 
 recharge_return:check() -- 感觉是废表
 recharge_rebate:check() --- 感觉是废表
@@ -370,8 +372,8 @@ sound_ui:check()
 specialability_base:check()
 
 
-text_content:check()
-text_error:check()
+
+
 
 text_help:check()
 text_mail:check()
