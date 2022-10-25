@@ -3,7 +3,9 @@ require "prototype_table"
 other_shop_shelf = {}
 setmetatable(other_shop_shelf, { __index = prototype_table })
 other_shop_shelf.name = "other_shop_shelf"
-local exclude_ids = {}
+local exclude_ids = {
+    ["2"] = true
+}
 function other_shop_shelf:check()
     local row_number = self:getDataRowCount()
     for i = 1, row_number, 1 do
