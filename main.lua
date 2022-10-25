@@ -28,6 +28,7 @@ other_shop_shelf:check()
 other_shop_goods:check()
 text_fighttips:check()
 world_lv_gift:check()
+item_material:check()
 
 print("--------- exit lua scripts ---------")
 do
@@ -120,7 +121,7 @@ item_gift_exp:check()
 item_make_equip:check()
 item_make_equip_suit:check()
 item_make_paper:check()
-item_material:check()
+
 item_money:check()
 item_partner:check()
 item_partner_fashion:check()
