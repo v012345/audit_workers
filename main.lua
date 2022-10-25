@@ -29,7 +29,11 @@ other_shop_goods:check()
 text_fighttips:check()
 world_lv_gift:check()
 item_material:check()
-
+entity_goods:check()
+item_base:check()
+item_artifact_level:check()
+union_task:check()
+-- print(Dump(GetItemById(18000)))
 print("--------- exit lua scripts ---------")
 do
     return
@@ -44,10 +48,13 @@ text_answer:check()
 text_announcement:check()
 text_error:check()
 text_content:check()
+world_config:check()
 
 recharge_return:check() -- 感觉是废表
-recharge_rebate:check() --- 感觉是废表
-other_shop_skill:check() --- 感觉是废表
+recharge_rebate:check() -- 感觉是废表
+other_shop_skill:check() -- 感觉是废表
+item_buff:check() -- 感觉是废表
+item_artifact_extend:check() -- 感觉是废表
 
 
 
@@ -78,21 +85,21 @@ entity_attribute:check()
 entity_effect:check()
 entity_effect2:check()
 entity_fight_value:check()
-entity_goods:check()
+
 entity_npc:check()
 entity_obstacle:check()
 entity_pet:check()
 entity_portal:check()
 entity_role:check()
-item_artifact_extend:check()
-item_artifact_level:check()
+
+
 item_artifact_progress:check()
 item_artifact_skill:check()
 item_artifact_skin:check()
 item_artifact_star:check()
 item_artifact_starup:check()
-item_base:check()
-item_buff:check()
+
+
 item_competition:check()
 item_competition_gift:check()
 item_competition_task:check()
@@ -412,6 +419,6 @@ union_sign:check()
 union_sign_gift:check()
 union_sign_redpacket:check()
 union_skill:check()
-union_task:check()
-world_config:check()
+
+
 
