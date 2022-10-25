@@ -49,6 +49,7 @@ text_announcement:check()
 text_error:check()
 text_content:check()
 world_config:check()
+config_head:check()
 
 recharge_return:check() -- 感觉是废表
 recharge_rebate:check() -- 感觉是废表
@@ -73,7 +74,7 @@ config_auto_bourse:check()
 config_banner:check()
 config_color:check()
 config_get_type:check()
-config_head:check()
+
 config_lottery:check()
 config_operating_activity:check()
 config_pvp_ai:check()
