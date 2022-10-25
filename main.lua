@@ -4,6 +4,7 @@ package.path = './scripts/?.lua;' .. package.path
 require "load_all_tables"
 
 require "utils"
+buff_base:check()
 buff_rule:check()
 -- entity_ai:check()
 item_fashion_role_type1:check()
@@ -29,7 +30,7 @@ text_fighttips:check()
 
 print("--------- exit lua scripts ---------")
 do
-    -- return
+    return
 end
 -- 以下是基本表 , 只是给其他服提供服务 , 列出来只是看看还有多少表没有完成
 res_image:check()
@@ -53,7 +54,7 @@ action_attack_effect2:check()
 action_camera:check()
 action_displacement:check()
 attribute_change:check()
-buff_base:check()
+
 config_activity_find:check()
 config_activity_notice:check()
 config_agility_task:check()
