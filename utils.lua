@@ -42,6 +42,10 @@ function GetItemById(id, role_type)
     return item_table:getRowDataById(id), table_name
 end
 
+function CheckItemById(id, role_type)
+
+end
+
 -- function PrintMissForeignKey(master_table_name,)
-    
+
 -- end

@@ -27,6 +27,7 @@ item_gift:check()
 other_shop_shelf:check()
 other_shop_goods:check()
 text_fighttips:check()
+world_lv_gift:check()
 
 print("--------- exit lua scripts ---------")
 do
@@ -412,4 +413,4 @@ union_sign_redpacket:check()
 union_skill:check()
 union_task:check()
 world_config:check()
-world_lv_gift:check()
+
