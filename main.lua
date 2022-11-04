@@ -33,6 +33,20 @@ entity_goods:check()
 item_base:check()
 item_artifact_level:check()
 union_task:check()
+item_title:check()
+text_content:check()
+text_error:check()
+text_answer:check()
+text_story:check()
+text_announcement:check()
+text_help:check()
+text_mail:check()
+text_name:check()
+text_sound_talk:check()
+
+text_task:check()
+text_tutor:check()
+text_ui:check()
 -- print(Dump(GetItemById(18000)))
 print("--------- exit lua scripts ---------")
 do
@@ -44,10 +58,10 @@ res_sound:check()
 res_spine:check()
 res_fashion:check()
 res_video:check()
-text_answer:check()
-text_announcement:check()
-text_error:check()
-text_content:check()
+
+
+
+
 world_config:check()
 config_head:check()
 
@@ -156,7 +170,7 @@ item_spirit_value:check()
 item_sprite_skill:check()
 item_sprite_skill_random:check()
 item_suit:check()
-item_title:check()
+
 item_update_material:check()
 lottery_artifact_area:check()
 lottery_artifact_limit:check()
@@ -385,14 +399,7 @@ specialability_base:check()
 
 
 
-text_help:check()
-text_mail:check()
-text_name:check()
-text_sound_talk:check()
-text_story:check()
-text_task:check()
-text_tutor:check()
-text_ui:check()
+
 tutor_func_priority:check()
 tutor_process:check()
 tutor_tips:check()

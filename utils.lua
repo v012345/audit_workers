@@ -10,6 +10,18 @@ function SplitString(str, delimiter)
     return chunks
 end
 
+---返回给定pattern出现的次数
+---@param str string 原字符串
+---@param sub_string string pattern
+---@return integer
+function CountIfInString(str,sub_string)
+    local chunks = {}
+    for substring in string.gmatch(str, sub_string) do
+        table.insert(chunks, substring)
+    end
+    return #chunks
+end
+
 ---通过中间表 item_base 和 角色类型 去查找物品
 ---@param id number|string 物品 id
 ---@param role_type number|string|nil 角色类型
