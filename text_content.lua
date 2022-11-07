@@ -22,6 +22,9 @@ function text_content:check()
         if CountIfInString(row.zhcn, "%%s") ~= CountIfInString(row.vi, "%%s") then
             print(string.format("%s , id = %s , %%s 的数量对匹配", self.name, row.id))
         end
+        if CountIfInString(row.zhcn, "%%s") + CountIfInString(row.zhcn, "%%d") > 1 then
+            print(string.format("%s , id = %s , 请使用 '%%1:s %%2:d' 这种新格式", self.name, row.id))
+        end
     end
 end
 
