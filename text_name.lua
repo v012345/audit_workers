@@ -19,9 +19,28 @@ function text_name:check()
         if CountIfInString(row.zhcn, "%%s") + CountIfInString(row.zhcn, "%%d") > 1 then
             print(string.format("%s , id = %s , 请使用 '%%1:s %%2:d' 这种新格式", self.name, row.id))
         end
-        if  string.match(row.vi, "\\[^\\n]") or string.match(row.zhcn, "\\[^\\n]") then
-            print(string.format("%s , id = %s , 使用 \\ 有问题 , \\ 后面只能是 n 或者 \\ , 看看不是在空格了", self.name, row.id))
+        if string.match(row.vi, "\\[^\\n]") or string.match(row.zhcn, "\\[^\\n]") then
+            print(string.format("%s , id = %s , 使用 \\ 有问题 , \\ 后面只能是 n 或者 \\ , 看看不是在空格了"
+                , self.name, row.id))
         end
+        if row.vi == "-2146826246" then
+            print(string.format("%s , id = %s , %s 翻译有问题 , 翻译成了 %s"
+                , self.name, row.id, row.zhcn, row.vi))
+        end
+
+        local patterns = {
+            "{%d+, %d+, %d+}",
+            "{%d+,%d+, %d+}",
+            "{%d+, %d+,%d+}"
+        }
+        for _, pattern in pairs(patterns) do
+            if string.find(row.vi, pattern) or string.find(row.zhcn, pattern) then
+                print(string.format("%s , id = %s , 里的 {???,???,???} 逗号反面不能有空格"
+                    , self.name, row.id))
+            end
+        end
+
     end
 end
+
 return text_name

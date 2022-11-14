@@ -22,6 +22,17 @@ function text_tutor:check()
         if  string.match(row.vi, "\\[^\\n]") or string.match(row.zhcn, "\\[^\\n]") then
             print(string.format("%s , id = %s , 使用 \\ 有问题 , \\ 后面只能是 n 或者 \\ , 看看不是在空格了", self.name, row.id))
         end
+        local patterns = {
+            "{%d+, %d+, %d+}",
+            "{%d+,%d+, %d+}",
+            "{%d+, %d+,%d+}"
+        }
+        for _, pattern in pairs(patterns) do
+            if string.find(row.vi, pattern) or string.find(row.zhcn, pattern) then
+                print(string.format("%s , id = %s , 里的 {???,???,???} 逗号反面不能有空格"
+                    , self.name, row.id))
+            end
+        end
     end
 end
 return text_tutor
