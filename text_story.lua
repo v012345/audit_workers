@@ -5,6 +5,7 @@ setmetatable(text_story, { __index = prototype_table })
 text_story.name = "text_story"
 function text_story:check()
     local row_number = self:getDataRowCount()
+    local output = io.open(self.name .. ".txt", "w")
     for i = 1, row_number, 1 do
         local row = self:getRowDataByRowNumber(i)
         if CountIfInString(row.vi, "&") > 0 then
@@ -19,8 +20,9 @@ function text_story:check()
         if CountIfInString(row.zhcn, "%%s") + CountIfInString(row.zhcn, "%%d") > 1 then
             print(string.format("%s , id = %s , 请使用 '%%1:s %%2:d' 这种新格式", self.name, row.id))
         end
-        if  string.match(row.vi, "\\[^\\n]") or string.match(row.zhcn, "\\[^\\n]") then
-            print(string.format("%s , id = %s , 使用 \\ 有问题 , \\ 后面只能是 n 或者 \\ , 看看不是在空格了", self.name, row.id))
+        if string.match(row.vi, "\\[^\\n]") or string.match(row.zhcn, "\\[^\\n]") then
+            print(string.format("%s , id = %s , 使用 \\ 有问题 , \\ 后面只能是 n 或者 \\ , 看看不是在空格了"
+                , self.name, row.id))
         end
         local patterns = {
             "{%d+, %d+, %d+}",
@@ -33,6 +35,17 @@ function text_story:check()
                     , self.name, row.id))
             end
         end
+        if output then
+            local vi = row.vi
+            vi = vi:gsub("{(%d+),[ ]?(%d+),[ ]?(%d+)}", "{%1,%2,%3}")
+            output:write(vi)
+            output:write("\n")
+        end
+    end
+
+    if output then
+        output:close()
     end
 end
+
 return text_story

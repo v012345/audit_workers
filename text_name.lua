@@ -5,6 +5,7 @@ setmetatable(text_name, { __index = prototype_table })
 text_name.name = "text_name"
 function text_name:check()
     local row_number = self:getDataRowCount()
+    local output = io.open(self.name .. ".txt", "w")
     for i = 1, row_number, 1 do
         local row = self:getRowDataByRowNumber(i)
         if CountIfInString(row.vi, "&") > 0 then
@@ -40,6 +41,16 @@ function text_name:check()
             end
         end
 
+        if output then
+            local vi = row.vi
+            vi = vi:gsub("{(%d+),[ ]?(%d+),[ ]?(%d+)}", "{%1,%2,%3}")
+            output:write(vi)
+            output:write("\n")
+        end
+    end
+
+    if output then
+        output:close()
     end
 end
 
