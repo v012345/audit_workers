@@ -31,13 +31,16 @@ function text_story:check()
         }
         for _, pattern in pairs(patterns) do
             if string.find(row.vi, pattern) or string.find(row.zhcn, pattern) then
-                print(string.format("%s , id = %s , 里的 {???,???,???} 逗号反面不能有空格"
+                print(string.format("%s , id = %s , 中的 {???,???,???} 逗号后面不能有空格"
                     , self.name, row.id))
             end
         end
+        if CountIfInString(row.zhcn, "{%d+,%d+,%d+}") ~= CountIfInString(row.vi, "{%d+,%d+,%d+}") then
+            print(string.format("%s , id = %s , {???,???,???} 的数量不匹配", self.name, row.id))
+        end
         if output then
             local vi = row.vi
-            vi = vi:gsub("{(%d+),[ ]?(%d+),[ ]?(%d+)}", "{%1,%2,%3}")
+            vi = vi:gsub("{(%d+)[ ]?[%.,][ ]?(%d+)[ ]?[%.,][ ]?(%d+)}", "{%1,%2,%3}")
             output:write(vi)
             output:write("\n")
         end
