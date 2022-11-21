@@ -38,6 +38,9 @@ function text_ui:check()
         if CountIfInString(row.zhcn, "{%d+,%d+,%d+}") ~= CountIfInString(row.vi, "{%d+,%d+,%d+}") then
             print(string.format("%s , id = %s , {???,???,???} 的数量不匹配", self.name, row.id))
         end
+        if CountIfInString(row.zhcn, "%%%d+d") ~= CountIfInString(row.vi, "%%%d+d") then
+            print(string.format("%s , id = %s , %%??d 的数量不匹配", self.name, row.id))
+        end
         if output then
             local vi = row.vi
             vi = vi:gsub("{(%d+)[ ]?[%.,][ ]?(%d+)[ ]?[%.,][ ]?(%d+)}", "{%1,%2,%3}")
